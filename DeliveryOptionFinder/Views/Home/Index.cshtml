@@ -1,0 +1,55 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+
+@section adhoc_scripts_bottom {
+    <script type="text/javascript" src="~/scripts/modules/module-picking.js"></script>
+}
+<style>
+    .entryBox {
+        float: left;
+        margin-top: 20px;
+    }
+</style>
+<div class="jumbotron">
+    <h1>Delivery Options Finder</h1>
+    <h2>Find delivery methods available to postcode entered.</h2>
+
+    <!-- Smart textbox -->
+    <div style="padding: 10px">
+
+        <input type="hidden" id="postcode" />
+        <div class="input-group">
+            <input type="text" id="postcode1"
+                   class="form-control input-lg"
+                   placeholder="Enter a valid postcode here...">
+            <div class="entryBox">
+                <span class="input-group-btn">
+                    <button class="btn btn-lg btn-primary rounded" type="button"
+                            id="buttonFind1" onclick="getDeliveryItem()">
+                        Get Delivery Info
+                    </button>
+                </span>
+            </div>
+        </div>
+    </div>
+  
+    <div>
+
+
+        <p class="bg-info .lead" id="delLabel">Deliveries available in the selected postcode:</p>
+        <h4 class="bg-success" id="delAvailable">No delivery</h4>
+
+        <h2>Delivery Locations</h2>
+        <img src="~/Content/images/ton.png" alt="local map of delivery places" style="width:75%;height:55%;" />
+
+    </div>
+</div>
+
+<script type="text/javascript">
+    function getDeliveryItem() {
+        var code = $("#postcode1").val();
+        fetch(code);
+    }
+</script>

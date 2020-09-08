@@ -1,0 +1,63 @@
+[
+
+  {
+    "PostCode": "TN9",
+    "DeliveryAvailable": "Delivery from Warehouse"
+  },
+  {
+    "PostCode": "TN9 1AP",
+    "DeliveryAvailable": "No Deliveries"
+  },
+  {
+    "PostCode": "TN8",
+    "DeliveryAvailable": "Delivery from Warehouse"
+  },
+  {
+    "PostCode": "TN11",
+    "DeliveryAvailable": "Delivery from Warehouse"
+  },
+  {
+    "PostCode": "TN1",
+    "DeliveryAvailable": "Van Delivery, Collect from Tunbridge Wells"
+  },
+  {
+    "PostCode": "TN2",
+    "DeliveryAvailable": "Van Delivery, Collect from Tunbridge Wells"
+  },
+  {
+    "PostCode": "TN10",
+    "DeliveryAvailable": "Van Delivery"
+  },
+  {
+    "PostCode": "TN13",
+    "DeliveryAvailable": "Delivery from Sevenoaks, Collect from Sevenoaks"
+  },
+  {
+    "PostCode": "14",
+    "DeliveryAvailable": "Delivery from Sevenoaks, Collect from Sevenoaks"
+  },
+  {
+    "PostCode": "TN15",
+    "DeliveryAvailable": "Collect from Sevenoaks"
+  },
+  {
+    "PostCode": "ME",
+    "DeliverAvailable": "No Deliveries"
+  },
+  {
+    "PostCode": "ME10",
+    "DeliveryAvailable": "Collect from Kitchen"
+  },
+  {
+    "PostCode": "ME10 3",
+    "DeliveryAvailable": "Collect from Kitchen, Deivery from Sittingbourne"
+  },
+  {
+    "PostCode": "IV",
+    "DeliveryAvailable": "No Deliveries"
+  },
+  {
+    "PostCode": "All Others",
+    "DeliveryAvailable": "Delivery by Courier"
+  }
+]
