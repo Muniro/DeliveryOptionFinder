@@ -1,9 +1,8 @@
-﻿using DeliveryOptionFinder.Models;
+﻿using DeliveryOptionFinder.Cache;
+using DeliveryOptionFinder.Models;
 using DeliveryOptionsService.Interfaces;
-using System;
-using System.Collections.Generic;
+using Newtonsoft.Json;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace DeliveryOptionFinder.Controllers
@@ -11,10 +10,12 @@ namespace DeliveryOptionFinder.Controllers
     public class HomeController : Controller
     {
         private readonly IDeliveryOptionsService service;
+        private ICacheService cacheService;
 
-        public HomeController(IDeliveryOptionsService service)
+        public HomeController(IDeliveryOptionsService service, ICacheService cacheService)
         {
             this.service = service;
+            this.cacheService = cacheService;
         }
         public ActionResult Index()
         {
@@ -27,8 +28,7 @@ namespace DeliveryOptionFinder.Controllers
            
             var list = (from postCode in service.GetDeliveryOptionsByPostCode(filter)
                         select new DeliveryItem()
-                        {
-                         
+                        {                      
                             DeliveryAvailable = postCode.DeliveryAvailable
                         }).ToList();
 
@@ -38,8 +38,10 @@ namespace DeliveryOptionFinder.Controllers
         public ActionResult Details(
          [Bind(Prefix = "id")] string code)
         {
-            var retVal= Json(service.GetDeliveryOptionsByPostCode(code.ToUpper()), JsonRequestBehavior.AllowGet);
-            return retVal;
+        
+            //Note this is too simplified but the code will grab the data and add to cache if not find, otherwise it will add to cache!
+            return  Json(cacheService.GetOrSet(code, () => service.GetDeliveryOptionsByPostCode(code.ToUpper())),JsonRequestBehavior.AllowGet);
+            
         }
 
 
